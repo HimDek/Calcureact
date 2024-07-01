@@ -29,7 +29,7 @@ const calculate = (a, b, operator) =>
                 ? Math.sqrt(b)
                 : Math.pow(b, 1 / a)
               : a / b
-    : a ? a : b;
+    : Number(a) ? a : Number(b);
 
 const App = () => {
   let [calc, setState] = useState({
@@ -64,7 +64,7 @@ const App = () => {
   const operatorClickHandler = (e) => {
     e.preventDefault();
     const value = e.target.innerHTML;
-    const res = !calc.res && calc.num ? calc.num : calc.res;
+    const res = !calc.res && calc.num ? Number(calc.num) : calc.res;
     const num0 = calc.res;
     setState({
       ...calc,
