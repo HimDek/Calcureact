@@ -42,7 +42,7 @@ const App = () => {
   const numClickHandler = (e) => {
     e.preventDefault();
     const value = e.target.innerHTML;
-    const num = calc.num.toString().includes(".") && ["0", "."].includes(calc.num.toString().pop())
+    const num = calc.num.toString().includes(".") && ["0", "."].includes(calc.num.slice(-1))
       ? calc.num.toString() + value
       : Number(calc.num.toString() + value);
     setState({
